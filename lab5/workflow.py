@@ -15,7 +15,6 @@ def conditional_edge(state: State) -> Literal["b", "c", END]:
     elif select == "q":
         return END
     else:
-        # الـ Graph هيقف هنا ويستنى الـ Command من الأدمن
         admin = interrupt(f"Unexpected input '{select}'")
         print(f"Admin decided to: {admin}")
         
