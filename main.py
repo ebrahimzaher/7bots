@@ -1,14 +1,14 @@
-from lab1 import graph, State
+from lab2 import graph, State
 
 def main():
     png_bytes = graph.get_graph().draw_mermaid_png()
     
-    with open("lab1/lab1_graph.png", "wb") as f:
+    with open("lab2/lab2_graph.png", "wb") as f:
         f.write(png_bytes)
-    print("✅ Graph image saved successfully as 'lab1_graph.png'")
+    print("✅ Graph image saved successfully as 'lab2_graph.png'")
 
     initial_state = State(
-        nlist=["Hello node a"]
+        nlist = ["Initial state:"]
     )
     
     print("\n🚀 Starting Graph Execution...")
