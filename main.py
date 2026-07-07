@@ -1,21 +1,23 @@
-from lab2 import graph, State
+from lab3 import graph, State
 
 def main():
     png_bytes = graph.get_graph().draw_mermaid_png()
     
-    with open("lab2/lab2_graph.png", "wb") as f:
+    with open("lab3/lab3_graph.png", "wb") as f:
         f.write(png_bytes)
-    print("✅ Graph image saved successfully as 'lab2_graph.png'")
+    print("✅ Graph image saved successfully as 'lab3_graph.png'")
 
-    initial_state = State(
-        nlist = ["Initial state:"]
-    )
-    
-    print("\n🚀 Starting Graph Execution...")
-    result = graph.invoke(initial_state)
-
-    print("\n✅ Final Output:")
-    print(result)
+    while True:
+        user = input("b, c, or q to quite:")
+        print(user)
+        input_state = State(
+            nlist = [user]
+        )
+        result = graph.invoke(input_state)
+        print(result)
+        if result["nlist"][-1]=="q":
+            print("Quit")
+            break
 
 if __name__ == "__main__":
     main()
