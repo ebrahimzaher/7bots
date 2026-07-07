@@ -1,11 +1,13 @@
-from lab3 import graph, State
+from lab4 import graph, State
 
 def main():
     png_bytes = graph.get_graph().draw_mermaid_png()
     
-    with open("lab3/lab3_graph.png", "wb") as f:
+    with open("lab4/lab4_graph.png", "wb") as f:
         f.write(png_bytes)
-    print("✅ Graph image saved successfully as 'lab3_graph.png'")
+    print("✅ Graph image saved successfully as 'lab4_graph.png'")
+    
+    config = {"configurable": {"thread_id": "1"}}
 
     while True:
         user = input("b, c, or q to quite:")
@@ -13,7 +15,7 @@ def main():
         input_state = State(
             nlist = [user]
         )
-        result = graph.invoke(input_state)
+        result = graph.invoke(input_state, config=config)
         print(result)
         if result["nlist"][-1]=="q":
             print("Quit")
